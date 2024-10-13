@@ -30,8 +30,8 @@ The different combinations of optimization techniques and parameter settings:
    - **Loss**: 0.7824  
 
 2. **Combination 2**: Early stopping, dropout (0.5), RMSprop, L1 regularization (0.001)  
-   - **Accuracy**: 72.66%  
-   - **Loss**: 0.6353  
+   - **Accuracy**: 70.96%  
+   - **Loss**: 0.8067  
 
 3. **Combination 3**: Early stopping, dropout (0.5), RMSprop, L2 regularization (0.001)  
    - **Accuracy**: 65.62%  
