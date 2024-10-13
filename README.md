@@ -52,3 +52,54 @@ The different combinations of optimization techniques and parameter settings:
 7. **Combination 7**: Early stopping, Adam, L1 regularization (0.001)  
    - **Accuracy**: 60.81%  
    - **Loss**: 0.9270
+
+In this project, several combinations of optimization techniques and parameter settings were tested to improve the performance of the model. Below is a detailed discussion of the underlying principles behind each optimization technique and the rationale for the parameter selections:
+
+### 1. **Early Stopping**
+   - **Principle**: Early stopping is a form of regularization used to prevent overfitting. It monitors the model's performance on a validation set and halts training when the performance ceases to improve after a certain number of epochs. This helps avoid overfitting and saves computational resources.
+   - **Relevance**: This technique ensures that the model does not train too long, which could lead to overfitting, especially given the complexity of neural networks.
+   - **Parameters**:
+     - `monitor='val_loss'`: The model’s validation loss was monitored to decide when to stop training.
+     - `patience`: This parameter specifies how many epochs the model will continue training after the performance stops improving.
+   
+   Early stopping was applied across all experiments to ensure that the model does not overfit to the training data and generalizes well to new, unseen data.
+
+### 2. **Optimization Algorithms**
+   - **RMSprop**: 
+     - **Principle**: RMSprop (Root Mean Square Propagation) adjusts the learning rate for each parameter individually, using the square root of the average of squared gradients. It helps in dealing with the "vanishing gradient" problem by dividing the gradient by a moving average of its magnitude.
+     - **Relevance**: RMSprop is well-suited for problems involving noisy or non-stationary objectives, making it a good fit for training deep networks where gradients can be unstable.
+   - **Adam**: 
+     - **Principle**: Adam (Adaptive Moment Estimation) is an adaptive learning rate optimizer that combines the benefits of RMSprop and momentum. It maintains running averages of both the gradient and its square, allowing for a faster and more reliable convergence.
+     - **Relevance**: Adam is widely used in deep learning because of its efficiency and effectiveness across a variety of tasks.
+   - **Comparison**: RMSprop performed better in most cases in this project, as seen in the second and third combinations (accuracy: 70.96% and 65.62%), while Adam did not perform as well (accuracy: 58.59% and lower).
+
+### 3. **Regularization**
+   - **L1 Regularization (Lasso)**: 
+     - **Principle**: L1 regularization adds the absolute value of the magnitude of coefficients as a penalty term to the loss function. This forces some coefficients to be exactly zero, effectively performing feature selection.
+     - **Relevance**: L1 regularization helps in sparse models and can eliminate irrelevant features or parameters, leading to simpler and less overfitted models.
+   - **L2 Regularization (Ridge)**: 
+     - **Principle**: L2 regularization adds the squared value of the coefficients as a penalty to the loss function. Unlike L1, it does not eliminate features but reduces the magnitude of parameters, leading to more generalized models.
+     - **Relevance**: L2 regularization helps prevent overfitting by shrinking large weights, thereby making the model more robust to noise and improving generalization.
+   - **Comparison**:
+     - The second combination using **L1 regularization (0.001)** achieved an accuracy of 70.96% with a loss of 0.8067. This indicates that L1 regularization was effective in penalizing large weights and preventing overfitting.
+     - **L2 regularization (0.001)**, as seen in the third and first combinations, performed decently but did not outperform L1 regularization.
+
+### 4. **Dropout**
+   - **Principle**: Dropout is a regularization technique that randomly drops units (along with their connections) from the neural network during training. It prevents co-adaptation of hidden units by forcing the network to learn more robust features.
+   - **Relevance**: Dropout was used to combat overfitting, particularly in models with a large number of parameters. It forces the network to learn multiple independent representations of the data.
+   - **Dropout Rate**: A dropout rate of 0.5 was used, which is a commonly used value to balance regularization while maintaining network capacity. The second combination showed that dropout (0.5) paired with RMSprop and L1 regularization led to the best performance.
+
+### 5. **Parameter Selection and Tuning**
+   - **L1 and L2 Regularization Values**: 
+     - L1 regularization was set to `0.001` in some experiments and `0.01` in others. The smaller value (0.001) performed better in terms of accuracy (70.96%), while the larger value (0.01) resulted in poorer performance, as seen in the fifth and sixth combinations.
+     - L2 regularization also used a value of `0.001`. It performed decently (65.62% accuracy), but L1 regularization was more effective in this project.
+   - **Optimizer Selection**: RMSprop consistently outperformed Adam, with the second combination (RMSprop + L1) achieving the highest accuracy. This indicates that RMSprop’s adaptation to learning rates during training was more suitable for the dataset and model architecture.
+
+### Summary of Results:
+- **Best Model**: The **second combination** (early stopping, dropout of 0.5, RMSprop, L1 regularization of 0.001) achieved the best performance, with an accuracy of **70.96%** and a loss of **0.8067**.
+- **Optimization Insights**:
+  - **RMSprop** outperformed **Adam** in most cases, especially when paired with L1 regularization and dropout.
+  - **L1 regularization (0.001)** provided the best performance in controlling overfitting while maintaining good accuracy.
+  - **Dropout** at 0.5 was an effective regularization technique across various configurations.
+
+This thorough analysis shows that combining **RMSprop** with **L1 regularization** and **dropout** produced the most robust model in terms of both accuracy and loss.
