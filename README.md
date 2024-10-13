@@ -192,13 +192,13 @@ Here's a section to include in the README for running the notebook and loading t
 4. **Model Evaluation:**
    - After loading the model, use the following commands to evaluate it:
      ```python
-     # Evaluate the model on the test set
-     loss, accuracy = optimized_model.evaluate(X_test, y_test)
-     print(f"Optimized Model - Loss: {loss}, Accuracy: {accuracy}")
-
-     # Similarly for the vanilla model
-     loss, accuracy = vanilla_model.evaluate(X_test, y_test)
-     print(f"Vanilla Model - Loss: {loss}, Accuracy: {accuracy}")
+     # Evaluate the vanilla model
+     test_perf_vanilla = vanilla_model.evaluate(test_ds)
+     print(f"Vanilla Model - Test Performance: {test_perf_vanilla}")
+      
+     # Evaluate the optimized model
+     test_perf_optimized = optimized_model.evaluate(test_ds)
+     print(f"Optimized Model - Test Performance: {test_perf_optimized}")
      ```
 
 ---
