@@ -135,6 +135,13 @@ Thank you for sharing the confusion matrices for both models. Below is a compreh
 
   The improved performance metrics for the optimized model reflect successful adjustments in training, leading to better class distinction. The precision score indicates that the model is reasonably accurate when it predicts a class, while the recall shows room for improvement in capturing all relevant instances.
 
+Here’s the data presented in a tabular format:
+
+| Model                         | Accuracy  | Precision (Macro) | Recall (Macro) | F1 Score (Macro) |
+|-------------------------------|-----------|-------------------|----------------|-------------------|
+| Vanilla Model                 | 35.42%    | 14.17%            | 23.59%         | 14.29%            |
+| Model with Optimization Technique | 67.71% | 65.89%            | 50.18%         | 48.22%            |
+
 #### 3. **Specificity and Additional Metrics**
 Calculating specificity for each class can provide a more comprehensive evaluation of the model's performance in terms of true negative rates. This analysis helps identify classes that are frequently confused with others, offering insights into areas where further improvements may be necessary..
 
