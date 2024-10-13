@@ -183,10 +183,10 @@ Here's a section to include in the README for running the notebook and loading t
      from tensorflow.keras.models import load_model
 
      # Load the optimized model
-     optimized_model = load_model('saved_models/optimized_model.h5')
+     optimized_model = load_model('saved_models/model.pkl')
 
      # Load the vanilla model
-     vanilla_model = load_model('saved_models/vanilla_model.h5')
+     vanilla_model = load_model('saved_models/model.pkl')
      ```
 
 4. **Model Evaluation:**
