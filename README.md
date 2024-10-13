@@ -4,7 +4,7 @@
 
 **Objectives**
 
-The primary objective of this project is to develop a robust image classification model that accurately distinguishes between four different skin conditions: Monkeypox, Measles, Chickenpox, and Normal, just by uploading a skin lesion. By leveraging a Convolutional Neural Network (CNN) architecture, the project aims to:
+The primary objective of this project is to develop a robust image classification model that accurately distinguishes between four different skin conditions: **Monkeypox, Measles, Chickenpox, and Normal,** just by uploading a skin lesion. By leveraging a Convolutional Neural Network (CNN) architecture, the project aims to:
 
 **1) Build a Deep Learning Model:** Create an effective image classification model utilizing CNN to identify and classify images into the specified categories.
 
