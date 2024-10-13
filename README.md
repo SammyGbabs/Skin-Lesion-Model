@@ -20,3 +20,35 @@ During the data processing phase, I took the initiative to split the dataset int
 By leveraging this structured approach to data splitting and utilizing a dataset rich in labeled images, the project aims to develop a reliable model for the accurate classification of these skin conditions.
 
 Link to Dataset:  https://www.kaggle.com/datasets/dipuiucse/monkeypoxskinimagedataset
+
+## Key Findings and Discussion on my Optimization technique and Parameters setting
+
+The different combinations of optimization techniques and parameter settings:
+
+1. **Combination 1**: Early stopping, RMSprop, L2 regularization (0.001)  
+   - **Accuracy**: 65.62%  
+   - **Loss**: 0.7824  
+
+2. **Combination 2**: Early stopping, dropout (0.5), RMSprop, L1 regularization (0.001)  
+   - **Accuracy**: 72.66%  
+   - **Loss**: 0.6353  
+
+3. **Combination 3**: Early stopping, dropout (0.5), RMSprop, L2 regularization (0.001)  
+   - **Accuracy**: 65.62%  
+   - **Loss**: 0.7824  
+
+4. **Combination 4**: Early stopping, dropout (0.5), Adam, L2 regularization (0.001)  
+   - **Accuracy**: 58.59%  
+   - **Loss**: 0.9957  
+
+5. **Combination 5**: Early stopping, dropout (0.5), Adam, L1 regularization (0.01)  
+   - **Accuracy**: 56.12%  
+   - **Loss**: 1.0843  
+
+6. **Combination 6**: Early stopping, Adam, L1 regularization (0.01)  
+   - **Accuracy**: 65.62%  
+   - **Loss**: 1.1293  
+
+7. **Combination 7**: Early stopping, Adam, L1 regularization (0.001)  
+   - **Accuracy**: 60.81%  
+   - **Loss**: 0.9270
