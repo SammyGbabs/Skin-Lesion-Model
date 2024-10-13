@@ -156,3 +156,51 @@ The best model, which combined early stopping, dropout of 0.5, RMSprop, and L1 r
 
 It is important to note that the dataset used in this project is relatively small, consisting of only 770 images. The limited size of the dataset likely constrained the model's performance, and an increase in the number of training images could significantly enhance the model's accuracy and generalization capabilities. Thus, dataset size plays a crucial role in the effectiveness of the model..
 
+Here's a section to include in the README for running the notebook and loading the saved models:
+
+---
+
+### Instructions for Running the Notebook
+
+1. **Environment Setup:**
+   - Make sure all dependencies are installed by running the following:
+     ```bash
+     pip install -r requirements.txt
+     ```
+   
+2. **Running the Notebook:**
+   - Open the Jupyter Notebook:
+     ```bash
+     jupyter notebook
+     ```
+   - Navigate to the notebook file (`your_notebook_name.ipynb`) and open it.
+   
+   - Run the notebook cells sequentially to execute the code, train the models, and evaluate the results.
+
+3. **Loading Pre-trained Models:**
+   - Pre-trained models are saved in the directory `saved_models/`. To load the models and evaluate them without re-training:
+     ```python
+     from tensorflow.keras.models import load_model
+
+     # Load the optimized model
+     optimized_model = load_model('saved_models/optimized_model.h5')
+
+     # Load the vanilla model
+     vanilla_model = load_model('saved_models/vanilla_model.h5')
+     ```
+
+4. **Model Evaluation:**
+   - After loading the model, use the following commands to evaluate it:
+     ```python
+     # Evaluate the model on the test set
+     loss, accuracy = optimized_model.evaluate(X_test, y_test)
+     print(f"Optimized Model - Loss: {loss}, Accuracy: {accuracy}")
+
+     # Similarly for the vanilla model
+     loss, accuracy = vanilla_model.evaluate(X_test, y_test)
+     print(f"Vanilla Model - Loss: {loss}, Accuracy: {accuracy}")
+     ```
+
+---
+
+This section should give users clear instructions on how to run the notebook and load the pre-trained models.
