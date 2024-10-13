@@ -103,3 +103,45 @@ In this project, several combinations of optimization techniques and parameter s
   - **Dropout** at 0.5 was an effective regularization technique across various configurations.
 
 This thorough analysis shows that combining **RMSprop** with **L1 regularization** and **dropout** produced the most robust model in terms of both accuracy and loss.
+
+Thank you for sharing the confusion matrices for both models. Below is a comprehensive error analysis based on the metrics and confusion matrices you've provided:
+
+## Error Analysis
+
+#### 1. **Confusion Matrices Overview**
+- **Model with Optimization Technique**:
+  - The confusion matrix indicates that the model performs better across most classes. It has correctly classified a significant number of instances from Class 2 (measles) and Class 3 (normal). However, there are misclassifications, especially for Class 0 (monkeypox) and Class 1 (chickenpox).
+  - Specifically, Class 0 has a substantial number of misclassifications into Class 2, suggesting confusion between monkeypox and measles.
+  - Class 1 has only a few instances correctly identified, indicating difficulty in distinguishing chickenpox from the other classes.
+
+- **Vanilla Model**:
+  - The performance is noticeably lower across all classes. The model has a high number of misclassifications, particularly for Class 3, where several instances are confused with Class 0 and Class 1.
+  - Class 2 also suffers from misclassifications, indicating that the vanilla model struggles to learn distinguishing features of the different classes.
+
+#### 2. **Performance Metrics**
+- **Vanilla Model**:
+  - **Accuracy**: 35.42%
+  - **Precision (Macro)**: 14.17%
+  - **Recall (Macro)**: 23.59%
+  - **F1 Score (Macro)**: 14.29%
+
+  The low metrics indicate that the vanilla model struggles significantly to classify the images correctly. The precision and recall suggest that the model is particularly poor at identifying positive instances correctly.
+
+- **Model with Optimization Technique**:
+  - **Accuracy**: 67.71%
+  - **Precision (Macro)**: 65.89%
+  - **Recall (Macro)**: 50.18%
+  - **F1 Score (Macro)**: 48.22%
+
+  The improved performance metrics for the optimized model reflect successful adjustments in training, leading to better class distinction. The precision score indicates that the model is reasonably accurate when it predicts a class, while the recall shows room for improvement in capturing all relevant instances.
+
+#### 3. **Specificity and Additional Metrics**
+Calculating specificity for each class can provide a more comprehensive evaluation of the model's performance in terms of true negative rates. This analysis helps identify classes that are frequently confused with others, offering insights into areas where further improvements may be necessary..
+
+### Summary
+The implementation of optimization techniques has significantly enhanced model performance, as evidenced by the metrics and confusion matrix. The optimized model achieves higher accuracy and better precision and recall compared to the vanilla model. However, further tuning and additional techniques may still be necessary to reduce confusion among specific classes, particularly between monkeypox and measles, as well as chickenpox and the other classes.
+
+The best model, which combined early stopping, dropout of 0.5, RMSprop, and L1 regularization of 0.001, achieved an accuracy of 70.96% and a loss of 0.8067. Model performance metrics highlighted significant improvements, with the vanilla model showing an accuracy of 0.3542 compared to 0.6771 after applying optimization techniques. Additional metrics, including precision, recall, and F1 score, further illustrated the enhancements achieved through optimization.
+
+It is important to note that the dataset used in this project is relatively small, consisting of only 770 images. The limited size of the dataset likely constrained the model's performance, and an increase in the number of training images could significantly enhance the model's accuracy and generalization capabilities. Thus, dataset size plays a crucial role in the effectiveness of the model..
+
